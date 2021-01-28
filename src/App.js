@@ -1,25 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { getCategories } from './services/api';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Search from './pages/Search';
 
 function App() {
-  getCategories();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Edit src/App.js and save to relad.</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={ Search } />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
