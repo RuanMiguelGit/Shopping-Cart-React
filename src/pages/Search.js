@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import shoppingCartIcon from '../images/shoppingCartIcon.png';
 
 class Search extends React.Component {
   constructor() {
@@ -19,16 +21,21 @@ class Search extends React.Component {
     const { query } = this.state;
 
     return (
-      <label htmlFor="home-initial" data-testid="home-initial-message">
-        <input
-          id="home-initial"
-          type="text"
-          value={ query }
-          onChange={ this.handleChange }
-        />
-        Digite algum termo de pesquisa ou escolha uma
-        categoria.
-      </label>
+      <div>
+        <label htmlFor="home-initial" data-testid="home-initial-message">
+          <input
+            id="home-initial"
+            type="text"
+            value={ query }
+            onChange={ this.handleChange }
+          />
+          Digite algum termo de pesquisa ou escolha uma
+          categoria.
+        </label>
+        <Link to="/shopping-cart" data-testid="shopping-cart-button">
+          <img src={ shoppingCartIcon } alt="shopping-cart" />
+        </Link>
+      </div>
     );
   }
 }
