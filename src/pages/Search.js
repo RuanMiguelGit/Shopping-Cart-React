@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import shoppingCartIcon from '../images/shoppingCartIcon.png';
+import './Pages.css';
 
 class Search extends React.Component {
   constructor() {
@@ -33,7 +34,7 @@ class Search extends React.Component {
           categoria.
         </label>
         <Link to="/shopping-cart" data-testid="shopping-cart-button">
-          <img src={ shoppingCartIcon } alt="shopping-cart" />
+          <img src={ shoppingCartIcon } alt="shopping-cart" className="shopping-cart" />
         </Link>
       </div>
     );
