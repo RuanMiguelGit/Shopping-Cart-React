@@ -1,12 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { getCategories } from './services/api';
 
 function App() {
+  getCategories();
   return (
     <div className="App">
       <header className="App-header">
-        <img src={ logo } className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="logo" />
         <p>Edit src/App.js and save to relad.</p>
         <a
           className="App-link"
