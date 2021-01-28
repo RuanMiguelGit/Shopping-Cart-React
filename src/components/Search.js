@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import shoppingCartIcon from '../images/shoppingCartIcon.png';
-import './Pages.css';
+import './Components.css';
 
 class Search extends React.Component {
   constructor() {
