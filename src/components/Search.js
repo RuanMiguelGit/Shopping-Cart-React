@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchResult from './SearchResult';
+import SearchResult from '../pages/SearchResult';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 
 class Search extends React.Component {
@@ -40,6 +40,7 @@ class Search extends React.Component {
             value={ query }
             onChange={ this.handleChange }
           />
+          <SearchResult queryResult={ queryResult } search={ search } />
           <button
             type="button"
             data-testid="query-button"
@@ -48,9 +49,6 @@ class Search extends React.Component {
             Pesquisar
           </button>
         </label>
-        <div>
-          <SearchResult queryResult={ queryResult } search={ search } />
-        </div>
       </div>
     );
   }

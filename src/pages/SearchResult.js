@@ -11,12 +11,16 @@ class SearchResult extends React.Component {
     }
     if (queryResult.length === 0) return <div>Nenhum produto foi encontrado</div>;
     return (
-      queryResult.map(
-        ((product) => (<ResultCard
-          key={ product.id }
-          product={ product }
-        />)),
-      )
+      <div>
+        {
+          queryResult.map(
+            ((product) => (<ResultCard
+              key={ product.id }
+              product={ product }
+            />)),
+          )
+        }
+      </div>
     );
   }
 }
@@ -27,6 +31,10 @@ SearchResult.defaultProps = {
 
 SearchResult.propTypes = {
   queryResult: PropTypes.arrayOf(Array),
+};
+
+SearchResult.propTypes = {
+  search: PropTypes.bool.isRequired,
 };
 
 export default SearchResult;

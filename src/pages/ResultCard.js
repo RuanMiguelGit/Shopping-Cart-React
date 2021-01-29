@@ -6,8 +6,8 @@ class ResultCard extends React.Component {
     const { product } = this.props;
 
     return (
-      <div>
-        <h1 data-testid="product">{product.title}</h1>
+      <div data-testid="product">
+        <h1>{product.title}</h1>
         <img src={ product.thumbnail } alt="Product pic " />
         <p>{product.price}</p>
       </div>
