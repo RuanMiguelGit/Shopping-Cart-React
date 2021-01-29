@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import shoppingCartIcon from '../images/shoppingCartIcon.png';
-import './Components.css';
+import SearchResult from '../pages/SearchResult';
+import { getProductsFromCategoryAndQuery } from '../services/api';
 
 class Search extends React.Component {
   constructor() {
@@ -9,7 +8,12 @@ class Search extends React.Component {
 
     this.state = {
       query: '',
+      queryResult: [],
+      search: false,
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.onSearch = this.onSearch.bind(this);
   }
 
   handleChange(event) {
@@ -18,24 +22,33 @@ class Search extends React.Component {
     });
   }
 
-  render() {
+  async onSearch() {
     const { query } = this.state;
+    const queryResult = await getProductsFromCategoryAndQuery('', query);
+    this.setState({ queryResult, search: true });
+  }
+
+  render() {
+    const { query, queryResult, search } = this.state;
 
     return (
       <div>
-        <label htmlFor="home-initial" data-testid="home-initial-message">
+        <label htmlFor="query-input" data-testid="home-initial-message">
           <input
-            id="home-initial"
+            data-testid="query-input"
             type="text"
             value={ query }
             onChange={ this.handleChange }
           />
-          Digite algum termo de pesquisa ou escolha uma
-          categoria.
+          <SearchResult queryResult={ queryResult } search={ search } />
+          <button
+            type="button"
+            data-testid="query-button"
+            onClick={ this.onSearch }
+          >
+            Pesquisar
+          </button>
         </label>
-        <Link to="/shopping-cart" data-testid="shopping-cart-button">
-          <img src={ shoppingCartIcon } alt="shopping-cart" className="shopping-cart" />
-        </Link>
       </div>
     );
   }

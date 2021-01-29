@@ -14,7 +14,6 @@ class Home extends React.Component {
 
   componentDidMount() {
     api.getCategories().then((categories) => {
-      console.log(categories);
       this.setState({
         categoriesfull: categories,
       });

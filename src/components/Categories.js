@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 class Categories extends React.Component {
   render() {
     const { categories } = this.props;
-    console.log(categories);
 
     return (
 
