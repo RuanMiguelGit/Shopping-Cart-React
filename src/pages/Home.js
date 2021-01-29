@@ -1,10 +1,34 @@
 import React from 'react';
+import * as api from '../services/api';
 import Search from '../components/Search';
+import Categories from '../components/Categories';
 
 class Home extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      categoriesfull: [],
+
+    };
+  }
+
+  componentDidMount() {
+    api.getCategories().then((categories) => {
+      console.log(categories);
+      this.setState({
+        categoriesfull: categories,
+      });
+    });
+  }
+
   render() {
+    const { categoriesfull } = this.state;
+
     return (
-      <Search />
+      <div>
+        <Search />
+        <Categories categories={ categoriesfull } />
+      </div>
     );
   }
 }
