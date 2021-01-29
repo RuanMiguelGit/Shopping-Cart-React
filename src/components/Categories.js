@@ -31,7 +31,7 @@ Categories.propTypes = {
       name: PropTypes.string,
     }).isRequired,
   ).isRequired,
-  onSelectedCategorie: PropTypes.func,
+  onSelectedCategorie: PropTypes.func.isRequired,
 };
 
 export default Categories;
