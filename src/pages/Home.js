@@ -8,14 +8,13 @@ class Home extends React.Component {
   constructor() {
     super();
 
-    const { products } = this.props;
-
     this.onSelectedCategorie = this.onSelectedCategorie.bind(this);
+    this.handleProducts = this.handleProducts.bind(this);
 
     this.state = {
       categoriesfull: [],
       selectedCategorie: '',
-      products,
+      searchProducts: [],
     };
   }
 
@@ -24,34 +23,43 @@ class Home extends React.Component {
       this.setState({
         categoriesfull: categories,
       });
+      console.log(categories);
     });
   }
 
-  onSelectedCategorie({ target }) {
-    const { value } = target;
+  handleProducts(products) {
     this.setState({
-      selectedCategorie: value,
+      searchProducts: products,
+    });
+  }
+
+  onSelectedCategorie(event) {
+    console.log(event);
+    // const { value } = target;
+    this.setState({
+      selectedCategorie: event,
     });
   }
 
   filterProduct() {
-    const { products, selectedCategorie } = this.state;
-    let filteredProducts = products;
+    const { searchProducts, selectedCategorie } = this.state;
+    let filteredProducts = searchProducts;
     if (selectedCategorie !== '') {
-      filteredProducts = products.filter(() => products.name === selectedCategorie);
+      filteredProducts = searchProducts
+        .filter(() => searchProducts.category_id === selectedCategorie);
     }
     return filteredProducts;
   }
 
   render() {
-    const { categoriesfull } = this.state;
+    const { selectedCategorie, categoriesfull } = this.state;
 
     return (
       <div>
-        <Search />
+        <Search value={ selectedCategorie } handleProducts={ this.handleProducts } />
         <Categories
           categories={ categoriesfull }
-          onSelectedCategorie={ this.onSelectedCategorie } 
+          onSelectedCategorie={ this.onSelectedCategorie() }
         />
       </div>
     );

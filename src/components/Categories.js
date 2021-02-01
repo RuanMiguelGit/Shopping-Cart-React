@@ -4,19 +4,18 @@ import PropTypes from 'prop-types';
 class Categories extends React.Component {
   render() {
     const { categories, onSelectedCategorie } = this.props;
-    console.log(categories);
 
     return (
       <div>
-        {categories.map((products) => (
-          <ul key={ products.id }>
+        {categories.map((category) => (
+          <ul key={ category.id }>
             <button
               type="button"
               onClick={ onSelectedCategorie }
-              value={ products.name }
+              value={ category }
             >
-              <li key={ products.name } data-testid="category">
-                {products.name}
+              <li key={ category.id } data-testid="category">
+                {category.name}
               </li>
             </button>
           </ul>))}

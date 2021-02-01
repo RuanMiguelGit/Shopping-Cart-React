@@ -13,12 +13,11 @@ class SearchResult extends React.Component {
     return (
       <div>
         {
-          queryResult.map(
-            ((product) => (<ResultCard
+          queryResult.results.map((product) => (
+            <ResultCard
               key={ product.id }
               product={ product }
-            />)),
-          )
+            />))
         }
       </div>
     );
