@@ -13,7 +13,7 @@ class SearchResult extends React.Component {
     return (
       <div>
         {
-          queryResult.results.map((product) => (
+          queryResult.map((product) => (
             <ResultCard
               key={ product.id }
               product={ product }

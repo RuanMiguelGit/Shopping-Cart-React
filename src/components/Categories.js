@@ -7,19 +7,20 @@ class Categories extends React.Component {
 
     return (
       <div>
-        {categories.map((category) => (
-          <ul key={ category.id }>
+        <ul>
+          {categories.map((category) => (
             <button
+              key={ category.id }
               type="button"
               onClick={ onSelectedCategorie }
               value={ category }
+              id={ category.id }
+              data-testid="category"
             >
-              <li key={ category.id } data-testid="category">
-                {category.name}
-              </li>
+              {category.name}
             </button>
-          </ul>))}
-
+          ))}
+        </ul>
       </div>);
   }
 }

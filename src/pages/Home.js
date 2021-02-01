@@ -2,18 +2,24 @@ import React from 'react';
 import * as api from '../services/api';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
+import Loading from '../components/Loading';
 
 class Home extends React.Component {
   constructor() {
     super();
 
     this.onSelectedCategorie = this.onSelectedCategorie.bind(this);
-    this.handleProducts = this.handleProducts.bind(this);
+    this.handleQuery = this.handleQuery.bind(this);
+    this.onSearch = this.onSearch.bind(this);
 
     this.state = {
+      query: '',
+      loading: false,
       categoriesfull: [],
       selectedCategorie: '',
       searchProducts: [],
+      queryResult: [],
+      search: false,
     };
   }
 
@@ -22,21 +28,36 @@ class Home extends React.Component {
       this.setState({
         categoriesfull: categories,
       });
-      console.log(categories);
     });
   }
 
-  handleProducts(products) {
+  handleQuery(query) {
     this.setState({
-      searchProducts: products,
+      query,
     });
+  }
+
+  async onSearch() {
+    const { selectedCategorie } = this.state;
+
+    this.setState(
+      { loading: true },
+      async () => {
+        const { query } = this.state;
+        const queryResult = await api.getProductsFromCategoryAndQuery(selectedCategorie, query);
+        this.setState({
+          queryResult: queryResult.results,
+          search: true,
+          loading: false,
+        });
+        //console.log(queryResult);
+      },
+    );
   }
 
   onSelectedCategorie(event) {
-    console.log(event);
-    // const { value } = target;
     this.setState({
-      selectedCategorie: event,
+      selectedCategorie: event.target.id,
     });
   }
 
@@ -51,11 +72,12 @@ class Home extends React.Component {
   }
 
   render() {
-    const { selectedCategorie, categoriesfull } = this.state;
-
+    const { loading, search } = this.state;
+    const { queryResult, categoriesfull } = this.state;
+    if (loading) return <Loading />;
     return (
       <div>
-        <Search value={ selectedCategorie } handleProducts={ this.handleProducts } />
+        <Search queryResult={ queryResult } search={ search } handleQuery={ this.handleQuery } onSearch={ this.onSearch } />
         <Categories
           categories={ categoriesfull }
           onSelectedCategorie={ this.onSelectedCategorie }

@@ -15,21 +15,20 @@ class Search extends React.Component {
     this.state = {
       query: '', // ATUALIZA O VALOR A CADA DIGITAÇÃO NO INPUT
       queryResult: [], // RETORNO DA API
-      search: false,
-      loading: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.onSearch = this.onSearch.bind(this);
   }
 
   handleChange(event) {
+    const { query } = this.state;
+    const { handleQuery } = this.props;
     this.setState({
       query: event.target.value,
     });
   }
 
-  async onSearch() {
+  /* async onSearch() {
     const { selectedCategorie, handleProducts } = this.props;
 
     this.setState(
@@ -47,10 +46,11 @@ class Search extends React.Component {
         handleProducts(queryResult.result);
       },
     );
-  }
+  } */
 
   render() {
-    const { query, queryResult, search, loading } = this.state;
+    const { query } = this.state;
+    const { onSearch, search, handleQuery, queryResult } = this.props;
 
     return (
       <div>
@@ -66,7 +66,7 @@ class Search extends React.Component {
           <button
             type="button"
             data-testid="query-button"
-            onClick={ this.onSearch }
+            onClick={ (event) => { handleQuery(query); onSearch(event); } }
           >
             Pesquisar
           </button>
@@ -76,8 +76,7 @@ class Search extends React.Component {
           <img src={ shoppingCartIcon } alt="shopping-cart" className="shopping-cart" />
         </Link>
 
-        { loading ? <Loading />
-          : <SearchResult queryResult={ queryResult } search={ search } />}
+        <SearchResult queryResult={ queryResult } search={ search } />
       </div>
     );
   }
