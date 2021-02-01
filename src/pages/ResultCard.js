@@ -7,6 +7,7 @@ class ResultCard extends React.Component {
 
     return (
       <div data-testid="product">
+        {/* CHECK 3 */}
         <h1>{product.title}</h1>
         <img src={ product.thumbnail } alt="Product pic " />
         <p>{product.price}</p>
