@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import SearchResult from '../pages/SearchResult';
 import shoppingCartIcon from '../images/shoppingCartIcon.png';
-import { getProductsFromCategoryAndQuery } from '../services/api';
 import './Components.css';
-import Loading from './Loading';
 
 class Search extends React.Component {
   constructor() {
@@ -14,13 +12,9 @@ class Search extends React.Component {
 
     this.state = {
       query: '', // ATUALIZA O VALOR A CADA DIGITAÇÃO NO INPUT
-      queryResult: [], // RETORNO DA API
-      search: false,
-      loading: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.onSearch = this.onSearch.bind(this);
   }
 
   handleChange(event) {
@@ -29,28 +23,9 @@ class Search extends React.Component {
     });
   }
 
-  async onSearch() {
-    const { selectedCategorie, handleProducts } = this.props;
-
-    this.setState(
-      { loading: true },
-      async () => {
-        const { query } = this.state;
-        const queryResult = await
-        getProductsFromCategoryAndQuery(selectedCategorie, query);
-        this.setState({
-          queryResult: queryResult.result,
-          search: true,
-          loading: false,
-        });
-        console.log(queryResult.result);
-        handleProducts(queryResult.result);
-      },
-    );
-  }
-
   render() {
-    const { query, queryResult, search, loading } = this.state;
+    const { query } = this.state;
+    const { onSearch, search, handleQuery, queryResult } = this.props;
 
     return (
       <div>
@@ -66,7 +41,7 @@ class Search extends React.Component {
           <button
             type="button"
             data-testid="query-button"
-            onClick={ this.onSearch }
+            onClick={ (event) => { handleQuery(query); onSearch(event); } }
           >
             Pesquisar
           </button>
@@ -76,16 +51,17 @@ class Search extends React.Component {
           <img src={ shoppingCartIcon } alt="shopping-cart" className="shopping-cart" />
         </Link>
 
-        { loading ? <Loading />
-          : <SearchResult queryResult={ queryResult } search={ search } />}
+        <SearchResult queryResult={ queryResult } search={ search } />
       </div>
     );
   }
 }
 
 Search.propTypes = {
-  handleProducts: PropTypes.func.isRequired,
-  selectedCategorie: PropTypes.string.isRequired,
+  onSearch: PropTypes.func.isRequired,
+  search: PropTypes.bool.isRequired,
+  handleQuery: PropTypes.func.isRequired,
+  queryResult: PropTypes.arrayOf(Array).isRequired,
 };
 
 export default Search;

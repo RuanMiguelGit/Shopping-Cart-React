@@ -3,23 +3,24 @@ import PropTypes from 'prop-types';
 
 class Categories extends React.Component {
   render() {
-    const { categories, onSelectedCategorie } = this.props;
+    const { categories, onSelectedCategorie, onSearch } = this.props;
 
     return (
       <div>
-        {categories.map((category) => (
-          <ul key={ category.id }>
+        <ul>
+          {categories.map((category) => (
             <button
+              key={ category.id }
               type="button"
-              onClick={ onSelectedCategorie }
+              onClick={ (event) => { onSelectedCategorie(event); onSearch(); } }
               value={ category }
+              id={ category.id }
+              data-testid="category"
             >
-              <li key={ category.id } data-testid="category">
-                {category.name}
-              </li>
+              {category.name}
             </button>
-          </ul>))}
-
+          ))}
+        </ul>
       </div>);
   }
 }
@@ -31,6 +32,7 @@ Categories.propTypes = {
     }).isRequired,
   ).isRequired,
   onSelectedCategorie: PropTypes.func.isRequired,
+  onSearch: PropTypes.func.isRequired,
 };
 
 export default Categories;
