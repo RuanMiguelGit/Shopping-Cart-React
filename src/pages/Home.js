@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import * as api from '../services/api';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
@@ -59,15 +58,11 @@ class Home extends React.Component {
         <Search value={ selectedCategorie } handleProducts={ this.handleProducts } />
         <Categories
           categories={ categoriesfull }
-          onSelectedCategorie={ this.onSelectedCategorie() }
+          onSelectedCategorie={ this.onSelectedCategorie }
         />
       </div>
     );
   }
 }
-
-Home.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
 
 export default Home;

@@ -36,7 +36,8 @@ class Search extends React.Component {
       { loading: true },
       async () => {
         const { query } = this.state;
-        const queryResult = await getProductsFromCategoryAndQuery(selectedCategorie, query);
+        const queryResult = await
+        getProductsFromCategoryAndQuery(selectedCategorie, query);
         this.setState({
           queryResult: queryResult.result,
           search: true,
