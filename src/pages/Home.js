@@ -44,13 +44,14 @@ class Home extends React.Component {
       { loading: true },
       async () => {
         const { query } = this.state;
-        const queryResult = await api.getProductsFromCategoryAndQuery(selectedCategorie, query);
+        const queryResult = await
+        api.getProductsFromCategoryAndQuery(selectedCategorie, query);
         this.setState({
           queryResult: queryResult.results,
           search: true,
           loading: false,
         });
-        //console.log(queryResult);
+        // console.log(queryResult);
       },
     );
   }
@@ -77,8 +78,14 @@ class Home extends React.Component {
     if (loading) return <Loading />;
     return (
       <div>
-        <Search queryResult={ queryResult } search={ search } handleQuery={ this.handleQuery } onSearch={ this.onSearch } />
+        <Search
+          queryResult={ queryResult }
+          search={ search }
+          handleQuery={ this.handleQuery }
+          onSearch={ this.onSearch }
+        />
         <Categories
+          onSearch={ this.onSearch }
           categories={ categoriesfull }
           onSelectedCategorie={ this.onSelectedCategorie }
         />

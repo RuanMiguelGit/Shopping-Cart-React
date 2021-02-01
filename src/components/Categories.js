@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Categories extends React.Component {
   render() {
-    const { categories, onSelectedCategorie } = this.props;
+    const { categories, onSelectedCategorie, onSearch } = this.props;
 
     return (
       <div>
@@ -12,7 +12,7 @@ class Categories extends React.Component {
             <button
               key={ category.id }
               type="button"
-              onClick={ onSelectedCategorie }
+              onClick={ (event) => { onSelectedCategorie(event); onSearch(); } }
               value={ category }
               id={ category.id }
               data-testid="category"
@@ -32,6 +32,7 @@ Categories.propTypes = {
     }).isRequired,
   ).isRequired,
   onSelectedCategorie: PropTypes.func.isRequired,
+  onSearch: PropTypes.func.isRequired,
 };
 
 export default Categories;
