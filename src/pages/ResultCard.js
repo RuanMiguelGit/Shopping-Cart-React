@@ -8,19 +8,6 @@ class ResultCard extends React.Component {
 
     return (
       <section>
-        <div data-testid="product">
-          <h1>{product.title}</h1>
-          <img src={ product.thumbnail } alt="Product pic " />
-          <p>{product.price}</p>
-          <button
-            data-testid="product-add-to-cart"
-            type="button"
-            onClick={ () => addProduct(product) }
-          >
-            Adicionar ao carrinho
-          </button>
-        </div>
-
         <Link
           to={ {
             pathname: `/products-details/${product.id}`,
@@ -36,6 +23,13 @@ class ResultCard extends React.Component {
             <p>{product.price}</p>
           </div>
         </Link>
+        <button
+          data-testid="product-add-to-cart"
+          type="button"
+          onClick={ () => addProduct(product) }
+        >
+          Adicionar ao carrinho
+        </button>
       </section>
     );
   }
