@@ -7,7 +7,10 @@ class SearchResult extends React.Component {
     const { queryResult, search, addProduct } = this.props;
 
     if (search === false) {
-      return <div>Digite algum termo de pesquisa ou escolha uma categoria.</div>;
+      return (
+        <div data-testid="home-initial-message">
+          Digite algum termo de pesquisa ou escolha uma categoria.
+        </div>);
     }
     if (queryResult.length === 0) return <div>Nenhum produto foi encontrado</div>;
     return (

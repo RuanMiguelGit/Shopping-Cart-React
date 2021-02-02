@@ -38,7 +38,7 @@ class Search extends React.Component {
 
     return (
       <div>
-        <label htmlFor="query-input" data-testid="home-initial-message">
+        <label htmlFor="query-input">
           <input
             id="query-input"
             data-testid="query-input"
