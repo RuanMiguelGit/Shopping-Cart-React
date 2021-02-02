@@ -50,7 +50,6 @@ class Home extends React.Component {
           search: true,
           loading: false,
         });
-        // console.log(queryResult);
       },
     );
   }
@@ -78,6 +77,7 @@ class Home extends React.Component {
           categories={ categoriesfull }
           onSelectedCategorie={ this.onSelectedCategorie }
         />
+
       </div>
     );
   }
