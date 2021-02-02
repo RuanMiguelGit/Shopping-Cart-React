@@ -7,11 +7,22 @@ class ResultCard extends React.Component {
     const { product, addProduct } = this.props;
 
     return (
-      <div data-testid="product">
-        {/* CHECK 3 */}
-        <h1>{product.title}</h1>
-        <img src={ product.thumbnail } alt="Product pic " />
-        <p>{product.price}</p>
+      <section>
+        <Link
+          to={ {
+            pathname: `/products-details/${product.id}`,
+            state: {
+              product,
+            },
+          } }
+          data-testid="product-detail-link"
+        >
+          <div data-testid="product">
+            <h1>{product.title}</h1>
+            <img src={ product.thumbnail } alt="Product pic " />
+            <p>{product.price}</p>
+          </div>
+        </Link>
         <button
           data-testid="product-add-to-cart"
           type="button"
@@ -19,22 +30,7 @@ class ResultCard extends React.Component {
         >
           Adicionar ao carrinho
         </button>
-      </div>
-      <Link
-        to={ {
-          pathname: `/products-details/${product.id}`,
-          state: {
-            product,
-          },
-        } }
-        data-testid="product-detail-link"
-      >
-        <div data-testid="product">
-          <h1>{product.title}</h1>
-          <img src={ product.thumbnail } alt="Product pic " />
-          <p>{product.price}</p>
-        </div>
-      </Link>
+      </section>
     );
   }
 }
