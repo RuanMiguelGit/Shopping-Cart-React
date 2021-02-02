@@ -17,7 +17,6 @@ class Home extends React.Component {
       loading: false,
       categoriesfull: [],
       selectedCategorie: '',
-      searchProducts: [],
       queryResult: [],
       search: false,
     };
@@ -59,17 +58,7 @@ class Home extends React.Component {
   onSelectedCategorie(event) {
     this.setState({
       selectedCategorie: event.target.id,
-    });
-  }
-
-  filterProduct() {
-    const { searchProducts, selectedCategorie } = this.state;
-    let filteredProducts = searchProducts;
-    if (selectedCategorie !== '') {
-      filteredProducts = searchProducts
-        .filter(() => searchProducts.category_id === selectedCategorie);
-    }
-    return filteredProducts;
+    }, () => this.onSearch(event));
   }
 
   render() {
