@@ -50,7 +50,6 @@ class Home extends React.Component {
           search: true,
           loading: false,
         });
-        // console.log(queryResult);
       },
     );
   }
