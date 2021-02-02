@@ -77,6 +77,7 @@ class Home extends React.Component {
           categories={ categoriesfull }
           onSelectedCategorie={ this.onSelectedCategorie }
         />
+
       </div>
     );
   }

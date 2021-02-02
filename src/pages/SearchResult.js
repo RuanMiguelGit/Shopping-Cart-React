@@ -4,7 +4,7 @@ import ResultCard from './ResultCard';
 
 class SearchResult extends React.Component {
   render() {
-    const { queryResult, search } = this.props;
+    const { queryResult, search, addProduct } = this.props;
 
     if (search === false) {
       return (
@@ -20,6 +20,7 @@ class SearchResult extends React.Component {
             <ResultCard
               key={ product.id }
               product={ product }
+              addProduct={ addProduct }
             />))
         }
       </div>
@@ -37,6 +38,10 @@ SearchResult.propTypes = {
 
 SearchResult.propTypes = {
   search: PropTypes.bool.isRequired,
+};
+
+SearchResult.propTypes = {
+  addProduct: PropTypes.func.isRequired,
 };
 
 export default SearchResult;

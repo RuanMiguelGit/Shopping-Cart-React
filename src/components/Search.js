@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { Link } from 'react-router-dom';
 import SearchResult from '../pages/SearchResult';
 import shoppingCartIcon from '../images/shoppingCartIcon.png';
@@ -11,10 +10,13 @@ class Search extends React.Component {
     super();
 
     this.state = {
-      query: '', // ATUALIZA O VALOR A CADA DIGITAÇÃO NO INPUT
+      query: '',
+      cart: [],
+      // ATUALIZA O VALOR A CADA DIGITAÇÃO NO INPUT
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.addProduct = this.addProduct.bind(this);
   }
 
   handleChange(event) {
@@ -23,8 +25,15 @@ class Search extends React.Component {
     });
   }
 
+  addProduct(queryResult) {
+    const { cart } = this.state;
+    this.setState({
+      cart: [...cart, queryResult],
+    });
+  }
+
   render() {
-    const { query } = this.state;
+    const { query, cart } = this.state;
     const { onSearch, search, handleQuery, queryResult } = this.props;
 
     return (
@@ -47,11 +56,18 @@ class Search extends React.Component {
           </button>
         </label>
 
-        <Link to="/shopping-cart" data-testid="shopping-cart-button">
+        <Link
+          to={ { pathname: '/shopping-cart/', cart } }
+          data-testid="shopping-cart-button"
+        >
           <img src={ shoppingCartIcon } alt="shopping-cart" className="shopping-cart" />
         </Link>
 
-        <SearchResult queryResult={ queryResult } search={ search } />
+        <SearchResult
+          queryResult={ queryResult }
+          search={ search }
+          addProduct={ this.addProduct }
+        />
       </div>
     );
   }
