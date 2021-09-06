@@ -17,6 +17,9 @@ class Search extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.addProduct = this.addProduct.bind(this);
+
+
+
   }
 
   handleChange(event) {
@@ -25,15 +28,16 @@ class Search extends React.Component {
     });
   }
 
+ 
   addProduct(queryResult) {
-    const { cart } = this.state;
+    const { cart, } = this.state;
     this.setState({
-      cart: [...cart, queryResult],
+      cart: [...cart,  queryResult,],
     });
   }
 
   render() {
-    const { query, cart } = this.state;
+    const { query, cart,} = this.state;
     const { onSearch, search, handleQuery, queryResult } = this.props;
 
     return (
@@ -57,7 +61,7 @@ class Search extends React.Component {
         </label>
 
         <Link
-          to={ { pathname: '/shopping-cart/', cart } }
+          to={ { pathname: '/shopping-cart/', cart,  } }
           data-testid="shopping-cart-button"
         >
           <img src={ shoppingCartIcon } alt="shopping-cart" className="shopping-cart" />
@@ -67,6 +71,8 @@ class Search extends React.Component {
           queryResult={ queryResult }
           search={ search }
           addProduct={ this.addProduct }
+          addup ={this.addup}
+          adddown = {this.adddown}
         />
       </div>
     );

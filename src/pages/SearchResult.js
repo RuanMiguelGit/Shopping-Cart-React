@@ -21,6 +21,8 @@ class SearchResult extends React.Component {
               key={ product.id }
               product={ product }
               addProduct={ addProduct }
+              addup ={this.addup}
+              adddown = {this.adddown}
             />))
         }
       </div>
