@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/React-Shopping-Cart/static/css/main.587dcd36.chunk.css",
-    "main.js": "/React-Shopping-Cart/static/js/main.77cf8332.chunk.js",
-    "main.js.map": "/React-Shopping-Cart/static/js/main.77cf8332.chunk.js.map",
-    "runtime-main.js": "/React-Shopping-Cart/static/js/runtime-main.dcb45d61.js",
-    "runtime-main.js.map": "/React-Shopping-Cart/static/js/runtime-main.dcb45d61.js.map",
-    "static/js/2.d374ad53.chunk.js": "/React-Shopping-Cart/static/js/2.d374ad53.chunk.js",
-    "static/js/2.d374ad53.chunk.js.map": "/React-Shopping-Cart/static/js/2.d374ad53.chunk.js.map",
-    "index.html": "/React-Shopping-Cart/index.html",
-    "precache-manifest.3101bf7e18ffa99a3ebd591ba471bd75.js": "/React-Shopping-Cart/precache-manifest.3101bf7e18ffa99a3ebd591ba471bd75.js",
-    "service-worker.js": "/React-Shopping-Cart/service-worker.js",
-    "static/css/main.587dcd36.chunk.css.map": "/React-Shopping-Cart/static/css/main.587dcd36.chunk.css.map",
-    "static/js/2.d374ad53.chunk.js.LICENSE.txt": "/React-Shopping-Cart/static/js/2.d374ad53.chunk.js.LICENSE.txt",
-    "static/media/shoppingCartIcon.png": "/React-Shopping-Cart/static/media/shoppingCartIcon.c35c7dea.png"
+    "main.css": "/static/css/main.587dcd36.chunk.css",
+    "main.js": "/static/js/main.0eab0d3a.chunk.js",
+    "main.js.map": "/static/js/main.0eab0d3a.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.6839dbe2.js",
+    "runtime-main.js.map": "/static/js/runtime-main.6839dbe2.js.map",
+    "static/js/2.d374ad53.chunk.js": "/static/js/2.d374ad53.chunk.js",
+    "static/js/2.d374ad53.chunk.js.map": "/static/js/2.d374ad53.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.52917c7f77ba148a5976dbea459f9094.js": "/precache-manifest.52917c7f77ba148a5976dbea459f9094.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.587dcd36.chunk.css.map": "/static/css/main.587dcd36.chunk.css.map",
+    "static/js/2.d374ad53.chunk.js.LICENSE.txt": "/static/js/2.d374ad53.chunk.js.LICENSE.txt",
+    "static/media/shoppingCartIcon.png": "/static/media/shoppingCartIcon.c35c7dea.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.dcb45d61.js",
+    "static/js/runtime-main.6839dbe2.js",
     "static/js/2.d374ad53.chunk.js",
     "static/css/main.587dcd36.chunk.css",
-    "static/js/main.77cf8332.chunk.js"
+    "static/js/main.0eab0d3a.chunk.js"
   ]
 }
