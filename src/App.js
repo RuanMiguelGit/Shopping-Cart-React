@@ -7,13 +7,13 @@ import ProductsDetails from './pages/ProductsDetails';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
-        <Route path="/shopping-cart" component={ ShoppingCart } />
-        <Route exact path="/" component={ Home } />
+        <Route path="/shopping-cart" component={ShoppingCart} />
+        <Route exact path="/" component={Home} />
         <Route
           path="/products-details/:id"
-          render={ (props) => <ProductsDetails { ...props } /> }
+          render={(props) => <ProductsDetails {...props} />}
         />
       </Switch>
     </BrowserRouter>
