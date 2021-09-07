@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/Shopping-Cart-React/static/css/main.302947f6.chunk.css",
-    "main.js": "/Shopping-Cart-React/static/js/main.5af84bfc.chunk.js",
-    "main.js.map": "/Shopping-Cart-React/static/js/main.5af84bfc.chunk.js.map",
+    "main.css": "/Shopping-Cart-React/static/css/main.587dcd36.chunk.css",
+    "main.js": "/Shopping-Cart-React/static/js/main.2f060c22.chunk.js",
+    "main.js.map": "/Shopping-Cart-React/static/js/main.2f060c22.chunk.js.map",
     "runtime-main.js": "/Shopping-Cart-React/static/js/runtime-main.865b4b64.js",
     "runtime-main.js.map": "/Shopping-Cart-React/static/js/runtime-main.865b4b64.js.map",
-    "static/js/2.eaa5352e.chunk.js": "/Shopping-Cart-React/static/js/2.eaa5352e.chunk.js",
-    "static/js/2.eaa5352e.chunk.js.map": "/Shopping-Cart-React/static/js/2.eaa5352e.chunk.js.map",
+    "static/js/2.d374ad53.chunk.js": "/Shopping-Cart-React/static/js/2.d374ad53.chunk.js",
+    "static/js/2.d374ad53.chunk.js.map": "/Shopping-Cart-React/static/js/2.d374ad53.chunk.js.map",
     "index.html": "/Shopping-Cart-React/index.html",
-    "precache-manifest.6e2092df33cc8e08181afaa6f5ef49b9.js": "/Shopping-Cart-React/precache-manifest.6e2092df33cc8e08181afaa6f5ef49b9.js",
+    "precache-manifest.3919d8d64d339701da0d8c66395f1d5b.js": "/Shopping-Cart-React/precache-manifest.3919d8d64d339701da0d8c66395f1d5b.js",
     "service-worker.js": "/Shopping-Cart-React/service-worker.js",
-    "static/css/main.302947f6.chunk.css.map": "/Shopping-Cart-React/static/css/main.302947f6.chunk.css.map",
-    "static/js/2.eaa5352e.chunk.js.LICENSE.txt": "/Shopping-Cart-React/static/js/2.eaa5352e.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/Shopping-Cart-React/static/media/logo.5d5d9eef.svg"
+    "static/css/main.587dcd36.chunk.css.map": "/Shopping-Cart-React/static/css/main.587dcd36.chunk.css.map",
+    "static/js/2.d374ad53.chunk.js.LICENSE.txt": "/Shopping-Cart-React/static/js/2.d374ad53.chunk.js.LICENSE.txt",
+    "static/media/shoppingCartIcon.png": "/Shopping-Cart-React/static/media/shoppingCartIcon.c35c7dea.png"
   },
   "entrypoints": [
     "static/js/runtime-main.865b4b64.js",
-    "static/js/2.eaa5352e.chunk.js",
-    "static/css/main.302947f6.chunk.css",
-    "static/js/main.5af84bfc.chunk.js"
+    "static/js/2.d374ad53.chunk.js",
+    "static/css/main.587dcd36.chunk.css",
+    "static/js/main.2f060c22.chunk.js"
   ]
 }
