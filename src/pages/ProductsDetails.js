@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import shoppingCartIcon from '../images/shoppingCartIcon.png';
+import '../components/Components.css';
 
 class ProductsDetails extends React.Component {
   constructor() {
@@ -29,18 +30,19 @@ class ProductsDetails extends React.Component {
     return (
       <div>
         <Link
-          to={ { pathname: '/shopping-cart/', cart } }
+          to={{ pathname: '/shopping-cart/', cart }}
           data-testid="shopping-cart-button"
         >
-          <img src={ shoppingCartIcon } alt="shopping-cart" className="shopping-cart" />
+          < img src={shoppingCartIcon} alt="shopping-cart" className="shopping-cart" />
         </Link>
-        <h1 data-testid="product-detail-name">{ title }</h1>
-        <img src={ thumbnail } alt="Product Pic" />
-        <p>{ price }</p>
+        <h1 data-testid="product-detail-name" className='product-name'>{title}</h1>
+        < img src={thumbnail} alt="Product Pic" className='product-picture2' />
+        <p className='product-price'> Preço {price} R$</p>
         <button
+          className='ButtonBuy2'
           type="button"
           data-testid="product-detail-add-to-cart"
-          onClick={ () => this.addProduct(product) }
+          onClick={() => this.addProduct(product)}
         >
           Adicionar ao carrinho
         </button>
@@ -56,7 +58,8 @@ ProductsDetails.propTypes = {
         title: PropTypes.string.isRequired,
         price: PropTypes.number.isRequired,
         thumbnail: PropTypes.string.isRequired,
-      }).isRequired }).isRequired,
+      }).isRequired
+    }).isRequired,
   }).isRequired,
 
 };

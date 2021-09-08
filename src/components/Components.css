@@ -46,7 +46,7 @@
 }
 
 .ButtonBuy {
-  background-color: #ffdb0e; /* Green */
+  background-color: #20e5ff; /* Green */
   border: none;
   border-radius: 5%;
   box-shadow: 0 16px 32px 0 hsla(0, 100%, 98%, 0.993) , 0 6px 20px 0 rgb;
@@ -71,14 +71,25 @@
   width: 300px;
 }
 
+.ButtonBuy2 {
+  background-color: #09ac6d; /* Green */
+  border: none;
+  border-radius: 5%;
+  box-shadow: 0 16px 32px 0 hsla(0, 100%, 98%, 0.993) , 0 6px 20;
+  color: black;
+  display: inline-block;
+  font-size: 20px;
+  height: 20%;
+  margin-left: 45%;
+  margin-top: 5%;
+}
+
 .product-name {
   background-color: rgb(0, 100, 87);
   text-align: center;
   text-decoration: bold;
   color:rgb(255, 255, 255);
   font-size: 20px;
-
-
 }
 
 .product-price {
@@ -97,6 +108,15 @@
   margin-left:20px;
   width: 250px;
 }
+
+.product-picture2 {
+  filter: drop-shadow(2px 2px 6px black);
+  height: 250px;
+  margin-left:35%;
+  width: 450px;
+}
+
+
 
 
 .product-value {
