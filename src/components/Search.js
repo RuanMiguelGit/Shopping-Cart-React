@@ -28,51 +28,53 @@ class Search extends React.Component {
     });
   }
 
- 
+
   addProduct(queryResult) {
     const { cart, } = this.state;
     this.setState({
-      cart: [...cart,  queryResult,],
+      cart: [...cart, queryResult,],
     });
   }
 
   render() {
-    const { query, cart,} = this.state;
+    const { query, cart, } = this.state;
     const { onSearch, search, handleQuery, queryResult } = this.props;
 
     return (
       <div>
         <label htmlFor="query-input">
           <input
+            className="InputS"
             id="query-input"
             data-testid="query-input"
             type="text"
-            value={ query }
-            onChange={ this.handleChange }
+            value={query}
+            onChange={this.handleChange}
           />
 
           <button
+            className="ButtonS"
             type="button"
             data-testid="query-button"
-            onClick={ (event) => { handleQuery(query); onSearch(event); } }
+            onClick={(event) => { handleQuery(query); onSearch(event); }}
           >
             Pesquisar
           </button>
         </label>
 
         <Link
-          to={ { pathname: '/shopping-cart/', cart,  } }
+          to={{ pathname: '/shopping-cart/', cart, }}
           data-testid="shopping-cart-button"
         >
-          <img src={ shoppingCartIcon } alt="shopping-cart" className="shopping-cart" />
+          <img src={shoppingCartIcon} alt="shopping-cart" className="shopping-cart" />
         </Link>
 
         <SearchResult
-          queryResult={ queryResult }
-          search={ search }
-          addProduct={ this.addProduct }
-          addup ={this.addup}
-          adddown = {this.adddown}
+          queryResult={queryResult}
+          search={search}
+          addProduct={this.addProduct}
+          addup={this.addup}
+          adddown={this.adddown}
         />
       </div>
     );

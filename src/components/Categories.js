@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Components.css';
 
 class Categories extends React.Component {
   render() {
@@ -10,11 +11,12 @@ class Categories extends React.Component {
         <ul>
           {categories.map((category) => (
             <button
-              key={ category.id }
+              key={category.id}
               type="button"
-              onClick={ (event) => { onSelectedCategorie(event); } }
-              value={ category }
-              id={ category.id }
+              className="ButtonC"
+              onClick={(event) => { onSelectedCategorie(event); }}
+              value={category}
+              id={category.id}
               data-testid="category"
             >
               {category.name}
